@@ -3,7 +3,7 @@ require_relative 'config/environment'
 class App < Sinatra::Base
   configure do
     enable :sessions unless test?
-    set :session_secret, 'secret'
+    set :session_secret, "secret"
   end
 
   before do
@@ -24,7 +24,7 @@ class App < Sinatra::Base
     if session[:foo] == 'hello'
       redirect '/fetch'
     else
-      'Session value has not been set!'
+      "Session value has not been set!"
     end
   end
 
@@ -33,27 +33,27 @@ class App < Sinatra::Base
   end
 
   get '/second_exercise' do
-    "Your second lesson will be to set your session :user_id key to a value.\nIn the route: /set_session, write a line of code that sets the session[:user_id] equal to 1.\nThen, navigate to the '/set_session' path"
+    "Your second lesson will be to set your session :id key to a value.\nIn the route: /set_session, write a line of code that sets the session[:id] equal to 1.\nThen, navigate to the '/set_session' path"
   end
 
   get '/set_session' do
-    session[:user_id] = 1
     #set session id here
-    if session[:user_id] == 1
-      # "Session ID set. It's currently set to #{session[:user_id]}."
+    session[:id] = 1
+    if session[:id] == 1
+      # "Session ID set. It's currently set to #{session[:id]}."
       redirect '/fetch_session_id'
     else
-      'Session ID has not been set!'
+      "Session ID has not been set!"
     end
   end
 
   get '/fetch_session_id' do
-    "You did it! session[:user_id] value: #{session[:user_id]}.\nNow, clear the session in the '/logout' route.\nSee the readme for further instructions.\nThen, navigate to the '/logout' path."
+    "You did it! session[:id] value: #{session[:id]}.\nNow, clear the session in the '/logout' route.\nSee the readme for further instructions.\nThen, navigate to the '/logout' path."
   end
 
   get '/logout' do
-    session = {}
-
+    #clear session hash here
+    session.clear
     "Session has now been cleared. session content: #{session.inspect}. Continue on to the '/finish' line!"
   end
 
