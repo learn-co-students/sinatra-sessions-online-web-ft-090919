@@ -16,7 +16,6 @@ class App < Sinatra::Base
 
   get '/first_exercise' do
     "Your first exercise will be to set your session key-value pair.\nIn the route: get '/set', write a line of code that sets the :foo key of the session hash equal to 'hello'.\nThen, navigate to the '/set' path."
-    redirect '/set'
   end
 
   get '/set' do
@@ -35,7 +34,6 @@ class App < Sinatra::Base
 
   get '/second_exercise' do
     "Your second lesson will be to set your session :id key to a value.\nIn the route: /set_session, write a line of code that sets the session[:id] equal to 1.\nThen, navigate to the '/set_session' path"
-    redirect '/set_session'
   end
 
   get '/set_session' do

@@ -11,7 +11,7 @@ describe 'App' do
   describe "GET '/first_exercise'" do
     it "returns a 200 status code" do
       get '/first_exercise'
-      expect(last_response.status).to eq(302)
+      expect(last_response.status).to eq(200)
     end
   end
 
@@ -33,7 +33,7 @@ describe 'App' do
   describe "GET '/second_exercise'" do
     it "returns a 200 status code" do
       get '/second_exercise'
-      expect(last_response.status).to eq(302)
+      expect(last_response.status).to eq(200)
     end
   end
 
